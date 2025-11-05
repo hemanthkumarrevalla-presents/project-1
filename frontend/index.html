@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Traffic Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="brand-mark" data-animate>
+        <div class="logo">STMS</div>
+        <div class="brand-text">
+          <strong>Smart Traffic Management System</strong>
+          <small>AI x IoT x Urban Innovation</small>
+        </div>
+      </div>
+      <div class="hero-copy" data-animate>
+        <h1>Adaptive city signals, explained visually</h1>
+        <p>Real-time decisions from simulated cameras, sensors, and AI heuristics.</p>
+      </div>
+      <div class="smart-indicator" id="smart-indicator" data-animate>
+        <span class="pulse"></span>
+        <span class="label">Smart Mode</span>
+        <span class="state">Calibrating…</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="metrics animate-up" data-animate>
+        <h2>Citywide Metrics</h2>
+        <div class="metric-grid" id="city-metrics"></div>
+      </section>
+
+      <section class="visualizations animate-up" data-animate>
+        <h2>Adaptive Signal Insights</h2>
+        <div class="viz-grid">
+          <div class="viz-card">
+            <header>
+              <h3>Vehicles per Minute</h3>
+              <span class="viz-hint">Glowing line auto-updates every refresh</span>
+            </header>
+            <canvas id="vehicles-chart" width="460" height="220"></canvas>
+          </div>
+          <div class="viz-card">
+            <header>
+              <h3>Signal Delay</h3>
+              <span class="viz-hint">Bar intensity highlights congestion risk</span>
+            </header>
+            <canvas id="delay-chart" width="460" height="220"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls-insights flex">
+        <div class="card animate-up" data-animate>
+          <h2>Control Center</h2>
+          <div class="smart-toggle">
+            <label>
+              <input type="checkbox" id="smart-toggle" checked />
+              <span class="slider"></span>
+              <span class="toggle-label">Smart Mode AI Core</span>
+            </label>
+            <p id="mode-status" class="mode-status">Mode: Normal Flow</p>
+          </div>
+          <div class="control-buttons">
+            <button type="button" data-mode="normal">Normal Flow</button>
+            <button type="button" data-mode="rush_hour">Simulate Rush Hour 🚦</button>
+            <button type="button" data-mode="emergency">Emergency Vehicle Mode 🚑</button>
+          </div>
+          <p class="hint">Toggle modes to see how adaptive timing changes in real time.</p>
+        </div>
+
+        <div class="card animate-up ai-card" data-animate>
+          <h2>AI Insights</h2>
+          <ul id="ai-insights"></ul>
+        </div>
+      </section>
+
+      <section class="flex intersections-wrap">
+        <div class="card animate-up" data-animate>
+          <h2>Intersections</h2>
+          <p class="hint">Signal state refresh cadence adapts to mode selection.</p>
+          <div id="intersections"></div>
+        </div>
+
+        <div class="card animate-up" data-animate>
+          <h2>Manual Override</h2>
+          <form id="override-form">
+            <label>
+              Intersection
+              <select name="id" id="override-id"></select>
+            </label>
+            <label>
+              Approach
+              <select name="approach" id="override-approach"></select>
+            </label>
+            <label>
+              Duration (seconds)
+              <input type="number" name="durationSeconds" min="15" max="300" value="90" />
+            </label>
+            <button type="submit">Trigger Override</button>
+            <p class="form-status" id="override-status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="history animate-up" data-animate>
+        <h2>Recent History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Intersection</th>
+              <th>Active Approach</th>
+              <th>Queues (vehicles)</th>
+            </tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <section class="final-impression" data-animate>
+      <div class="gradient-overlay"></div>
+      <blockquote>
+        “Revolutionizing city mobility through intelligent automation.”
+      </blockquote>
+    </section>
+
+    <footer>
+      <small>
+        Powered by demo data emulating cameras and inductive loop sensors. Adapted from proposed
+        STMS architecture.
+      </small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
