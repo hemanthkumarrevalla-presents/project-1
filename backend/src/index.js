@@ -78,7 +78,13 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: "Internal server error" });
 });
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Traffic simulator backend listening on port ${PORT}`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log(`Traffic simulator backend listening on port ${PORT}`);
+  });
+}
+
+// Export for Vercel serverless
+module.exports = app;
