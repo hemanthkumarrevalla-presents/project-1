@@ -1,4 +1,4 @@
-const API_BASE = window.API_BASE_URL || "http://localhost:4000";
+const API_BASE = window.API_BASE_URL || "https://project-1-rosy-one.vercel.app/"
 const MODE_LABELS = {
   normal: "Normal Flow",
   rush_hour: "Rush Hour Surge",
