@@ -1,4 +1,4 @@
-const API_BASE = window.API_BASE_URL || "https://project-1-rosy-one.vercel.app/"
+const API_BASE = window.API_BASE_URL || "https://project-1-rosy-one.vercel.app";
 const MODE_LABELS = {
   normal: "Normal Flow",
   rush_hour: "Rush Hour Surge",
@@ -462,7 +462,9 @@ async function toggleSmartMode(enabled) {
 
 async function refresh() {
   try {
+    console.log(`Fetching from: ${API_BASE}/api/state`);
     const state = await fetchJSON(`${API_BASE}/api/state`);
+    console.log("State received:", state);
     currentMode = state.mode || currentMode;
     smartModeEnabled = state.smartMode ?? smartModeEnabled;
     renderMetrics(state.metrics, smartModeEnabled);
@@ -483,6 +485,7 @@ async function refresh() {
     overrideStatus.className = "form-status";
     overrideStatus.textContent = "";
   } catch (error) {
+    console.error("Dashboard update error:", error);
     overrideStatus.textContent = `Dashboard update failed: ${error.message}`;
     overrideStatus.classList.add("error");
   }
